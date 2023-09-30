@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.swing.*;
+import java.util.List;
 
 
 @SpringBootApplication
@@ -17,9 +18,13 @@ public class Main {
     }
 
     @GetMapping("/greet")
-    public GreetRepsonse greet() {
-        return new GreetRepsonse("Hello");
+    public GreetResponse greet() {
+        return new GreetResponse("Hello", List.of("Golang","Java","JS"),new Person("Jed"));
     }
 
-    record GreetRepsonse(String greet){}
+    record Person(String name){}
+
+    record GreetResponse(String greet,
+                         List<String> favProgrammingLanguages,
+                         Person person){}
 }
