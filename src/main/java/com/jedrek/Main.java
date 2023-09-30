@@ -12,6 +12,7 @@ import javax.swing.*;
 @RestController
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Main initializing");
         SpringApplication.run(Main.class,args);
     }
 
